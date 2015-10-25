@@ -1,0 +1,11 @@
+#!/bin/bash
+
+#XXX: uncomment when needed:
+#find . -name "Cargo.toml" -type f -print0 | xargs --replace='{}' --max-args=1 -0 -- sed -e 's/authors = \[ "Your name <you@example.com>" \]/authors = [ "" ]/g' -i {}
+
+#XXX: ignore:
+#this will break if any spaces in paths/names
+#for i in `find . -name Cargo.toml`; do
+# echo $i
+#done
+
