@@ -1,1 +1,4 @@
-examples from: http://doc.rust-lang.org/book/
+examples from: 
+//old(stable): http://doc.rust-lang.org/book/
+https://doc.rust-lang.org/nightly/book/
+
