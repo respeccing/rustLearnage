@@ -1,0 +1,9 @@
+[package]
+name = "match_nonvar"
+version = "0.0.1"
+authors = [ "Your name <you@example.com>" ]
+
+[[bin]]
+
+name = "match_nonvar"
+
