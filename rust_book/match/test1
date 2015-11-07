@@ -1,0 +1,9 @@
+#!/bin/bash
+
+exe="./`find -- target -maxdepth 2 -executable -not -type d`"
+
+RUST_BACKTRACE= $exe
+RUST_BACKTRACE=1 $exe
+RUST_BACKTRACE=disabled $exe
+
+

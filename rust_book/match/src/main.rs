@@ -1,6 +1,6 @@
 
 use std::env;
-use std::ffi::OsString;
+//use std::ffi::OsString;
 //use std::convert::From; //don't need this, the error was confusing!
 
 //Rust has a keyword, match, that allows you to replace complicated if/else groupings with something more powerful. Check it out:
@@ -29,17 +29,22 @@ fn main() {
 
 //    let Option:y=Some(1);
     let z=env::var_os("RUST_BACKTRACE");
-    let qq=OsString::from("2");
-//    let qq=z.as_os_str().to_str();
-//    let qq="1".to_os_string();
+//    let qq=OsString::from("2");
+    
+////    let qq=z.as_os_str().to_str();
+////    let qq="1".to_os_string();
     println!("val={}", match z {
         Some(q) => { //XXX: this does not use the above 'q' ! and no warning!
-//            println!("{}", q.as_ref());
-            if q == qq {//ok, == doesn't work as I expect it! '1' == '2' yields true
-                println!("{}", q.to_string_lossy());
+//            if q == qq {
+            if q.eq("disabled") {
+                println!("EQUALS! {}", q.to_string_lossy());
+//                assert_eq!(q,qq);
+                3
+            } else {
+                2 
             }
-            2 
         },
+//        Some(x) => if x.eq("disabled") {1} else {2}, //works
         None => 1,
     })
 
