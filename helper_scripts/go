@@ -1,9 +1,23 @@
 #!/bin/bash
 #
-unset RUST_BACKTRACE
+#unset RUST_BACKTRACE
 #workaround issue: 29293 https://github.com/rust-lang/rust/issues/29293
 
+#echo $RUST_BACKTRACE
 
-time cargo build -v && time ./`find -- target -maxdepth 2 -executable -not -type d`
-# ./target/hello_world
+#workaround for set -e not playing nice with 'time' below, when exit codes are non-zero!
+set +ev
+
+#when compilation errors happen, none of the following 2 'time' will show any! apparently due to set -e  above!
+( 
+unset RUST_BACKTRACE
+time cargo build -v
+)
+ec=$?
+if test "$ec" -ne 0; then
+  exit $ec
+fi
+
+#this won't be reached, when the above failed:
+time ./`find -- target -maxdepth 2 -executable -not -type d`
 

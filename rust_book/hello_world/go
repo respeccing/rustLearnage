@@ -1,3 +1,1 @@
-time cargo build -v && time ./`find -- target -maxdepth 2 -executable -not -type d`
-# ./target/hello_world
-
+../../helper_scripts/go

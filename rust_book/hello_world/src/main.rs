@@ -1,4 +1,6 @@
 #![warn(missing_docs)]
+#![allow(dead_code)]
+#![allow(unused_variables)]
 
 //the following is the crate documentation, if you get missing documentation for crate
 //! Tools for dealing with universes (this is a doc comment, and is shown on
@@ -155,8 +157,8 @@ fn main() {
         if x % 5 == 0 { break; }
     }
 
-    1for x in range(0,10) { //src/main.rs:158:14: 158:19 error: unresolved name `range` [E0425] // XXX: this is also NOT detected by rustc -Z parse-only  the reason is obvious, but if not, see this for explanation: https://github.com/scrooloose/syntastic/commit/a39b397e6ae3b32d2a0497d0f4ddfec0479ad2bb#commitcomment-6652907   It's detected by -Z no-trans
-//    for x in 0..10 {
+//    for x in range(0,10) { //src/main.rs:158:14: 158:19 error: unresolved name `range` [E0425] // XXX: this is also NOT detected by rustc -Z parse-only  the reason is obvious, but if not, see this for explanation: https://github.com/scrooloose/syntastic/commit/a39b397e6ae3b32d2a0497d0f4ddfec0479ad2bb#commitcomment-6652907   It's detected by -Z no-trans
+    for x in 0..10 {
         if x % 2 == 0 { continue; }
         println!("{}", x);
     }
