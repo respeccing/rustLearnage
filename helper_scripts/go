@@ -21,3 +21,13 @@ fi
 #this won't be reached, when the above failed:
 time ./`find -- target -maxdepth 2 -executable -not -type d`
 
+
+#XXX: why not use cargo run ? you ask
+#
+#     Running `target/debug/hello_world.so`
+#Could not execute process `target/debug/hello_world.so` (never executed)
+#
+#Caused by:
+#  No such file or directory (os error 2)
+#
+
