@@ -17,4 +17,7 @@ target/
 #ignore any files named main (usually the compiled executable)
 main
 
+*.swp
+*~
+
 
