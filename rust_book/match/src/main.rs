@@ -29,13 +29,15 @@ fn main() {
 
 //    let Option:y=Some(1);
     let z=env::var_os("RUST_BACKTRACE");
-    let q=OsString::from("2");
+    let qq=OsString::from("2");
 //    let qq=z.as_os_str().to_str();
 //    let qq="1".to_os_string();
     println!("val={}", match z {
         Some(q) => { //XXX: this does not use the above 'q' ! and no warning!
 //            println!("{}", q.as_ref());
-            println!("{}", q.to_string_lossy());
+            if q == qq {//ok, == doesn't work as I expect it! '1' == '2' yields true
+                println!("{}", q.to_string_lossy());
+            }
             2 
         },
         None => 1,
