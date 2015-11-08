@@ -22,7 +22,7 @@ fi
 time ./`find -- target -maxdepth 2 -executable -not -type d`
 
 
-#XXX: why not use cargo run ? you ask
+#NEVERMIND: why not use cargo run ? you ask (it was my own fault for echo-ing to stdout, instead of stderr! via the ~/bin/rustc and cargo scripts), so the following doesn't apply! https://github.com/rust-lang/cargo/issues/2124
 #
 #     Running `target/debug/hello_world.so`
 #Could not execute process `target/debug/hello_world.so` (never executed)
