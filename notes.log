@@ -23,3 +23,17 @@ Always use these, in any rust source file (see 'rustc _Whelp' for all):
 #![warn(variant_size_differences)]
 
 
+Use clippy plugin: https://github.com/Manishearth/rust-clippy
+Add to Cargo.toml
+
+[dependencies]
+clippy = "*"
+
+Add to your .rs file:
+#![feature(plugin)]
+#![plugin(clippy)]
+
+#![deny(clippy)]  //this should work! but doesn't currently!
+#![deny(shadow_unrelated)] //this shouldn't be needed if the above works!
+
+

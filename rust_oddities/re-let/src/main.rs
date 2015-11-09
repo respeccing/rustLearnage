@@ -22,15 +22,22 @@
 #![warn(unused_qualifications)]
 #![warn(variant_size_differences)]
 
+#![feature(plugin)]
+
+#![plugin(clippy)] //thanks to arc on irc #rust for suggesting clippy!
+
+#![deny(clippy)]  //FIXME: this doesn't work (it should imply the below, but it doesn't, so the below is needed!))
+#![deny(shadow_unrelated)]
 
 fn main() {
     let x=10;
     println!("{}",x);
-    let x=11; //TODO: want a (lint check) warning here
+    let x=11; //done via clippy: want a (lint check) warning here
     println!("{}",x);
     {
-        let x=12; //TODO: want a (lint check) warning here
+        let x=12; //done via clippy: want a (lint check) warning here
         println!("{}",x);
     }
     println!("{}",x);
 }
+
