@@ -1,4 +1,5 @@
 fn main() {
+    //src: https://doc.rust-lang.org/nightly/book/functions.html#diverging-functions
     fn diverges() -> ! {
        panic!("This function never returns!");
     }
