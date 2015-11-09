@@ -1,3 +1,5 @@
+///src: https://doc.rust-lang.org/nightly/book/primitive-types.html#arrays
+
 use std::io; //import module
 
 fn main() {
@@ -6,8 +8,9 @@ fn main() {
     let a = [0; 20]; // a: [i32; 20]
     println!("a has {} elements", a.len());
     for e in a.iter() {
-        println!("{}", e);
+        print!("{},", e);
     }
+    println!("");
 
     let names = ["Graydon", "Brian", "Niko"]; // names: [&str; 3]
     println!("The second name is: {}", names[1]);
@@ -30,10 +33,18 @@ fn main() {
     println!("Type something!");
 //    let input = std::io::stdin().read_line().ok().expect("Failed to read line");
 //    let input = io::stdin().read_line().ok().expect("Failed to read line");
-    let input = io::stdin() // std::io::stdio::StdinReader
+    let mut input = String::new();
+    match io::stdin().read_line(&mut input) {
+        Ok(n) => {
+            println!("{} bytes read", n);
+            println!("{}", input);
+        }
+        Err(error) => println!("error: {}", error),
+    }
+/*    let input = io::stdin() // std::io::stdio::StdinReader
         .read_line() // IoResult<String>
         .ok() // Option<String>
         .expect("Failed to read line"); // String
-    println!("{}", input);
+    println!("{}", input);*/
 
 }
