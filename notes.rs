@@ -1,14 +1,14 @@
-Always use these, in any rust source file (see 'rustc _Whelp' for all):
+///Always use these, in any rust source file (see 'rustc _Whelp' for all):
 
 #![forbid(non_shorthand_field_patterns)]
 
 #![warn(dead_code)]
-(maybe change to forbid, in real rust source files!)
+///(maybe change to forbid, in real rust source files!)
 
 #![forbid(unsafe_code)]
 
 #![warn(missing_docs)]
-don't yet know how to add crate docs, so this will warn at the top of the file! (change to allow, for now)
+///don't yet know how to add crate docs, so this will warn at the top of the file! (change to allow, for now)
 
 #![warn(missing_debug_implementations)]
 #![warn(missing_copy_implementations)]
@@ -24,13 +24,13 @@ don't yet know how to add crate docs, so this will warn at the top of the file! 
 #![warn(variant_size_differences)]
 
 
-Use clippy plugin: https://github.com/Manishearth/rust-clippy
-Add to Cargo.toml
-
+///Use clippy plugin: https://github.com/Manishearth/rust-clippy
+///Add to Cargo.toml
+/*
 [dependencies]
 clippy = "*"
-
-Add to your .rs file:
+*/
+///Add to your .rs file:
 #![feature(plugin)]
 #![plugin(clippy)]
 
