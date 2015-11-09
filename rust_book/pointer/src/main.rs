@@ -1,3 +1,5 @@
+//#![feature(custom_derive)]
+
 fn main() {
     println!("Hello, world!");
     let x = 5;
@@ -61,9 +63,23 @@ fn main() {
     println!("Oh no: {} {:p}", x,x);
     *x -= 1;
     println!("Oh no: {} {:p}", x,x);
+
+
+    //src: https://doc.rust-lang.org/nightly/book/functions.html#function-pointers
+    //function pointers
+    fn plus_one(i: i32) -> i32 {
+            i + 1
+    }
+    // without type inference
+    let f: fn(i32) -> i32 = plus_one;
+    println!("{}",f(10));
+
+    // with type inference
+    let f = plus_one;
+    println!("{}",f(10));
 }//main //Box::new freed here
 
-#[derive(Show)]
+#[derive(Debug)]
 enum List<T> {
     Cons(T, Box<List<T>>),
     //The reference to another List inside of the Cons enum variant must be a box, because we don't
