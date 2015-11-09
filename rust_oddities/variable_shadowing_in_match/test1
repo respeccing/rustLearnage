@@ -1,0 +1,3 @@
+#!/bin/bash
+
+time RUST_BACKTRACE=disabled cargo run

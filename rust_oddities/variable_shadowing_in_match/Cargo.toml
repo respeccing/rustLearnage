@@ -7,3 +7,6 @@ authors = [ "Your name <you@example.com>" ]
 
 name = "match"
 
+[dependencies]
+clippy = "*"
+

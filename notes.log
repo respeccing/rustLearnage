@@ -8,6 +8,7 @@ Always use these, in any rust source file (see 'rustc _Whelp' for all):
 #![forbid(unsafe_code)]
 
 #![warn(missing_docs)]
+don't yet know how to add crate docs, so this will warn at the top of the file! (change to allow, for now)
 
 #![warn(missing_debug_implementations)]
 #![warn(missing_copy_implementations)]

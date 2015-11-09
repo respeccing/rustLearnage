@@ -1,3 +1,5 @@
+//so this is fixed now by using the clippy rust plugin! to detect variable shadowing which would
+//otherwise not be detected at all (I see there's a 100 char limit, rust.vim !)
 
 #![forbid(non_shorthand_field_patterns)]
 
