@@ -33,6 +33,7 @@ fn main() {
     println!("Type something!");
 //    let input = std::io::stdin().read_line().ok().expect("Failed to read line");
 //    let input = io::stdin().read_line().ok().expect("Failed to read line");
+    //src: https://doc.rust-lang.org/std/io/struct.Stdin.html#examples
     let mut input = String::new();
     match io::stdin().read_line(&mut input) {
         Ok(n) => {
