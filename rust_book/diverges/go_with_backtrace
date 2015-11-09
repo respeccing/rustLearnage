@@ -1,0 +1,8 @@
+#!/bin/bash
+#
+unset RUST_BACKTRACE
+#workaround issue: 29293 https://github.com/rust-lang/rust/issues/29293
+time RUST_BACKTRACE=1 cargo run -v
+#TODO: rust-playpen needs to have RUST_BACKTRACE set https://github.com/rust-lang/rust-playpen/issues/119
+
+
