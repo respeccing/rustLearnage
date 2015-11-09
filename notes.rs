@@ -9,6 +9,7 @@
 
 #![warn(missing_docs)]
 ///don't yet know how to add crate docs, so this will warn at the top of the file! (change to allow, for now)
+///crate docs with: //! 
 
 #![warn(missing_debug_implementations)]
 #![warn(missing_copy_implementations)]
