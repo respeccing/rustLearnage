@@ -26,8 +26,9 @@
 
 #![plugin(clippy)] //thanks to arc on irc #rust for suggesting clippy!
 
-#![deny(clippy)]  //FIXME: this doesn't work (it should imply the below, but it doesn't, so the below is needed!))
-#![deny(shadow_unrelated)]
+#![deny(clippy)]  //this doesn't work (it should imply the below, but it doesn't, so the below is needed!)) well the readme was inconsistent!
+//#![deny(shadow_unrelated)]
+#![deny(clippy_pedantic)] //this includes the above.
 
 fn main() {
     let x=10;

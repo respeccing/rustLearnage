@@ -33,7 +33,8 @@ Add to your .rs file:
 #![feature(plugin)]
 #![plugin(clippy)]
 
-#![deny(clippy)]  //this should work! but doesn't currently!
-#![deny(shadow_unrelated)] //this shouldn't be needed if the above works!
+#![deny(clippy)]
+#![deny(clippy_pedantic)]
+//#![deny(shadow_unrelated)] //this shouldn't be needed if you also specify the clippy_pedantic group!
 
 
