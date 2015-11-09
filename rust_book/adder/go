@@ -1,0 +1,3 @@
+unset RUST_BACKTRACE
+cargo test -v && cargo bench -v
+

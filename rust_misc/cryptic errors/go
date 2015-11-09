@@ -1,0 +1,2 @@
+RUST_BACKTRACE=disabled rustc deadcode.rs
+

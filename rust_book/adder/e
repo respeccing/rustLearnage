@@ -1,0 +1,3 @@
+echo execute ./go from vim by typing:   :!./go
+unset RUST_BACKTRACE
+vim ./src/lib.rs
