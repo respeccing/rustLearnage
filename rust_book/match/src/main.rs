@@ -37,7 +37,7 @@ fn main() {
     println!("val={}", match z {
         Some(ref q) if q.eq("disabled") => {
             println!("EQUALS! {}", q.to_string_lossy());
-            3},
+            1},
         Some(..) => 2,
 //        Some(x) => if x.eq("disabled") {1} else {2}, //works
         None => 1,

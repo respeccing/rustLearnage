@@ -6,4 +6,7 @@ RUST_BACKTRACE= $exe
 RUST_BACKTRACE=1 $exe
 RUST_BACKTRACE=disabled $exe
 
+unset RUST_BACKTRACE
+$exe
+
 
