@@ -35,16 +35,10 @@ fn main() {
 ////    let qq="1".to_os_string();
 
     println!("val={}", match z {
-        Some(q) => { //XXX: this does not use the above 'q' ! and no warning!
-//            if q == qq {
-            if q.eq("disabled") {
-                println!("EQUALS! {}", q.to_string_lossy());
-//                assert_eq!(q,qq);
-                3
-            } else {
-                2 
-            }
-        },
+        Some(ref q) if q.eq("disabled") => {
+            println!("EQUALS! {}", q.to_string_lossy());
+            3},
+        Some(..) => 2,
 //        Some(x) => if x.eq("disabled") {1} else {2}, //works
         None => 1,
     })
