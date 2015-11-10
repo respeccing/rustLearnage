@@ -41,7 +41,16 @@ fn main() {
         Some(..) => 2,
 //        Some(x) => if x.eq("disabled") {1} else {2}, //works
         None => 1,
-    })
+    });
+
+    println!("val={}", match z {
+        Some(q) =>
+            if q.eq("disabled") {
+                println!("EQUALS! {}", q.to_string_lossy());
+                1
+            } else { 2 },
+        None => 1,
+    });
 
 }
 
