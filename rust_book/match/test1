@@ -1,6 +1,6 @@
 #!/bin/bash
 
-exe="./`find -- target -maxdepth 2 -executable -not -type d`"
+exe='cargo run -v'
 
 RUST_BACKTRACE= $exe
 RUST_BACKTRACE=1 $exe

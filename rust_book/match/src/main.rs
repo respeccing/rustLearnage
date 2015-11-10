@@ -33,7 +33,7 @@ fn main() {
     
 ////    let qq=z.as_os_str().to_str();
 ////    let qq="1".to_os_string();
-    1
+
     println!("val={}", match z {
         Some(q) => { //XXX: this does not use the above 'q' ! and no warning!
 //            if q == qq {
