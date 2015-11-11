@@ -6,6 +6,7 @@ struct Point {
 	y: i32,
 }
 
+#[allow(unused_variables)]
 fn main() {
 	println!("Hello, struct world!");
 	let origin = Point { y: 2, x: 1 }; // origin: Point
@@ -37,4 +38,19 @@ fn main() {
     let origin = Point3d { x: 9, y: 10, z: 11 };
     let point = Point3d { z: 1, x: 2, .. origin };
     println!("{:?}", point);//2,10,1
+
+
+    //tuple struct
+    struct Inches(i32);
+
+    let length = Inches(10);
+
+    let Inches(integer_length) = length;
+    //As you can see here, you can extract the inner integer type through a destructuring let, just as with regular tuples. In this case, the let Inches(integer_length) assigns 10 to integer_length.
+    println!("length is {} inches", integer_length);
+
+    struct Electron;
+//    #[allow(unused_variables)]//XXX: this here needs a better error message, rust!
+    let x = Electron;
+    //Such a struct is called ‘unit-like’ because it resembles the empty tuple, (), sometimes called ‘unit’. Like a tuple struct, it defines a new type.
 }
