@@ -1,3 +1,5 @@
+use std::fmt;//for impl below
+
 fn main() {
     // In general, the `{}` will be automatically replaced with any
     // arguments. These will be stringified.
@@ -45,15 +47,27 @@ fn main() {
     // done ^ Add the missing argument: "James"
 
     // Create a structure which contains an `i32`. Name it `Structure`.
-    #[derive(Debug)] //makes this struct printable by {:?} but not by {}
-    struct Structure(i32);
+    #[derive(Debug)] //makes this struct printable by {:?} (but still not by {})
+    struct Structure(i32);//TODO: how do I access this from fmt::Display below via self?
+/*    struct Structure{
+        teh:i32
+    };*/
 
     // However, custom types such as this structure require more complicated
     // handling. This will not work.
     // the trait `core::fmt::Display` is not implemented for the type `main::Structure
-//    println!("This struct `{}` won't print...", Structure(3));//FIXME: how do I make this work anyway?
+    println!("This struct `{}` won't print...ok now it will because fmt::Display trait is implemented for it!", Structure(3));//done: how do I make this work anyway?
     // done ^ Comment out this line.
 
+
+	impl fmt::Display for Structure {
+		fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+			// The `f` value implements the `Write` trait, which is what the
+			// write! macro is expecting. Note that this formatting ignores the
+			// various flags provided to format strings.
+			write!(f, "Structure({})moo", self.0) //self.0 is in 1.2.2 https://rustbyexample.com/hello/print/print_display.html (lol, found by google! since I wasn't that far in)
+		}
+	}
 //impl core::fmt::Debug for Structure {//FIXME: how do I do this? without the #[derive(Debug)] above
 //
 //}
