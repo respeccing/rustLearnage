@@ -47,8 +47,8 @@ fn main() {
     // done ^ Add the missing argument: "James"
 
     // Create a structure which contains an `i32`. Name it `Structure`.
-    #[derive(Debug)] //makes this struct printable by {:?} (but still not by {})
-    struct Structure(i32);//TODO: how do I access this from fmt::Display below via self?
+    #[derive(Debug)] //makes this struct printable by {:?} (but still not by {}) see: https://rustbyexample.com/hello/print/print_debug.html
+    struct Structure(i32);//done: how do I access this from fmt::Display below via self? self.0
 /*    struct Structure{
         teh:i32
     };*/
@@ -60,6 +60,7 @@ fn main() {
     // done ^ Comment out this line.
 
 
+    //doesn't matter that that impl is done later on
 	impl fmt::Display for Structure {
 		fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
 			// The `f` value implements the `Write` trait, which is what the
