@@ -46,15 +46,16 @@ impl Circle {
         &self.x
     }
 
-    pub fn by_take(self) -> Boxx {
+/*    pub fn by_take(self) -> Boxx {
         println!("Taking ownership, not just borrowing a reference. INTENSE.");
         self.w  //it is moved out... unless defined the trait Drop on the type Circle!
-    }
-
- /*   pub fn by_take2(self) -> f64 {
-        println!("Taking ownership, not just borrowing a reference. INTENSE.");
-        self.x
     }*/
+
+    pub fn by_take2(self) -> f64 {
+        println!("Taking ownership, not just borrowing a reference. INTENSE.");
+        self.x //it is "moved?" out... and works even if Drop is defined on type Circle! (unlike for self.w)
+            //ok, it is copied I guess, since self.x such a simple type
+    }
 
     pub fn by_borrow(&self) -> &Boxx {
         println!("borrowing box");
@@ -75,7 +76,7 @@ fn main() {
         println!("showing borrowed x: {:?}", x);
     }
 //    let y= immutable.by_take2();
-    let by_take_box = immutable.by_take();//TODO: what happened with y,z? or even x? they got destroyed? so the return is a copy/clone then? since self.w is returned! ok, so i'm assuming since the box is moved out, the others are just destroyed; but how is the box moved out? memmove?
+    let by_take_box = immutable.by_take2();//TODO: what happened with y,z? or even x? they got destroyed? so the return is a copy/clone then? since self.w is returned! ok, so i'm assuming since the box is moved out, the others are just destroyed; but how is the box moved out? memmove?
     println!("By take: {:?}", by_take_box);
     //println!("Does the circle still exist? {:?}", immutable);//no
 }
