@@ -23,6 +23,13 @@ pub struct Boxx {
 //const nil:Circle= Circle{x:1,y:2,r:3,w:nul};
 //const nul:Circle= Circle{x:1,y:2,r:3,w:nil};
 
+
+impl Drop for Circle {
+    fn drop(&mut self) {
+        println!("Dropping! {:?}",self);
+    }
+}
+
 impl Circle {
     /// Creates a `Circle` instance centered on the "origin" (x = 0, y = 0).
     fn origin() -> Circle {
@@ -34,9 +41,24 @@ impl Circle {
         }
     }
 
-    pub fn by_take(self) -> f64 {
+    pub fn by_borrow_x(&self) -> &f64 {
+        println!("Taking ownership, not just borrowing a reference. INTENSE.");
+        &self.x
+    }
+
+    pub fn by_take(self) -> Boxx {
+        println!("Taking ownership, not just borrowing a reference. INTENSE.");
+        self.w  //it is moved out... unless defined the trait Drop on the type Circle!
+    }
+
+ /*   pub fn by_take2(self) -> f64 {
         println!("Taking ownership, not just borrowing a reference. INTENSE.");
         self.x
+    }*/
+
+    pub fn by_borrow(&self) -> &Boxx {
+        println!("borrowing box");
+        &self.w
     }
 }
 
@@ -44,8 +66,17 @@ fn main() {
     // Constructors can have default behavior, like this one.
     let immutable = Circle::origin();
 
-    let by_take_x = immutable.by_take();//TODO: what happened with y,z? or even x? they got destroyed? so the return is a copy/clone then? since self.x is returned!
-    println!("By take: {}", by_take_x);
+    {
+        let b = immutable.by_borrow();
+        println!("showing borrowed box: {:?}", b);
+    }
+    {
+        let x = immutable.by_borrow_x();
+        println!("showing borrowed x: {:?}", x);
+    }
+//    let y= immutable.by_take2();
+    let by_take_box = immutable.by_take();//TODO: what happened with y,z? or even x? they got destroyed? so the return is a copy/clone then? since self.w is returned! ok, so i'm assuming since the box is moved out, the others are just destroyed; but how is the box moved out? memmove?
+    println!("By take: {:?}", by_take_box);
     //println!("Does the circle still exist? {:?}", immutable);//no
 }
 
