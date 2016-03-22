@@ -43,10 +43,14 @@ fn main() {
     //    let z = &mut x; // error: cannot borrow `x` as mutable more than once at a time
 
     //boxes:
-    let x = Box::new(5);//Boxes are appropriate to use in two situations: Recursive data structures, and occasionally, when returning data.
+    let mut x = Box::new(5);//Boxes are appropriate to use in two situations: Recursive data structures, and occasionally, when returning data.
+    println!("mooooooooooo {}", succ(&*x));
     println!("{}", succ(&*x));
     println!("{}", succ(&*x));
-    println!("{}", succ(&*x));
+    println!("{}", succ(&x));
+    println!("{:?}", *x);
+    *x=4; // TODO: find out what happened to '5' if 5 were an object that could be freed, is it freed now? or later? or never? src: https://youtu.be/-dxqbhLIgdM?t=24m48s
+    println!("{:?}", *x);
 
     //recursive data structure
     let list: List<i32> = List::Cons(1, Box::new(List::Cons(2, Box::new(List::Cons(3, Box::new(List::Nil))))));
