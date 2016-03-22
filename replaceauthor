@@ -2,9 +2,10 @@
 
 #XXX: uncomment when needed:
 #find . -name "Cargo.toml" -type f -print0 | xargs --replace='{}' --max-args=1 -0 -- sed -e 's/authors = \[ "Your name <you@example.com>" \]/authors = [ "" ]/g' -i {}
+find . -name "Cargo.toml" -type f -print0 | xargs --replace='{}' --max-args=1 -0 -- sed -e 's/authors = \["Emanuel Czirai <zazdxscf@gmail\.com>"\]/authors = [ "Emanuel Czirai <respec.ing@gmail.com>" ]/g' -i {}
 
 #XXX: ignore:
-#this will break if any spaces in paths/names
+#the following will break if any spaces in paths/names
 #for i in `find . -name Cargo.toml`; do
 # echo $i
 #done
