@@ -76,7 +76,7 @@ fn main() {
         println!("showing borrowed x: {:?}", x);
     }
 //    let y= immutable.by_take2();
-    let by_take_box = immutable.by_take2();//TODO: what happened with y,z? or even x? they got destroyed? so the return is a copy/clone then? since self.w is returned! ok, so i'm assuming since the box is moved out, the others are just destroyed; but how is the box moved out? memmove?
+    let by_take_box = immutable.by_take2();//TODO: what happened with y,z? or even x? they got destroyed? so the return is a copy/clone then? since self.w is returned! ok, so i'm assuming since the box is moved out, the others are just destroyed; but how is the box moved out? memmove? - ok, so, the value returned(self.x) seems to be copied! because when it's a Boxx then this won't be allowed with Drop impl. too!
     println!("By take: {:?}", by_take_box);
     //println!("Does the circle still exist? {:?}", immutable);//no
 }
