@@ -1,5 +1,6 @@
 //src: http://stackoverflow.com/a/29168659/539686
 #![feature(core_intrinsics)]
+//https://doc.rust-lang.org/stable/std/intrinsics/index.html
 
 fn print_type_of<T>(_: &T) -> () {
     let type_name =
