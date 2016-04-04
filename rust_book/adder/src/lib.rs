@@ -6,18 +6,19 @@
 //! assert_eq!(4, adder::add_two(2));
 //! ```
 
+#![feature(test)]
 extern crate test;
 
 #[test]
-#[should_fail]
-fn it_works() {
+#[should_panic]
+fn it_works0() {
     assert!(false);
     assert_eq!("Hello", "world");
 }
 
 #[test]
-//#[should_fail(expected = "assertion failed")] // this works the same currently
-#[should_fail(expected = "failed: false")]
+////#[should_panic(expected = "assertion failed")] // this works the same currently
+#[should_panic(expected = "failed: false")]
 fn it_works2() {
     assert!(false);
     assert_eq!("Hello", "world");
@@ -75,7 +76,7 @@ mod tests2 {
         b.iter(|| {
             let mut n = 1000_u32;
             test::black_box(&mut n); // pretend to modify `n`
-            range(0, n).fold(0, |a, b| a ^ b)
+            (0..n).fold(0, |a, b| a ^ b)
         })
     }
 }
