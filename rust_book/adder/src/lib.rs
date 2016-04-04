@@ -5,9 +5,12 @@
 //! ```
 //! assert_eq!(4, adder::add_two(2));
 //! ```
+//! (note: this only works in library crates, not binary crates)
 
 #![feature(test)]
 extern crate test;
+
+//https://doc.rust-lang.org/nightly/book/testing.html#the-tests-module
 
 #[test]
 #[should_panic]
@@ -37,7 +40,8 @@ fn it_works3() {
 
 #[cfg(test)]
 mod tests {
-    use super::add_two;
+    //use super::add_two;
+    use super::*;
 
     #[test]
     fn it_works() {
