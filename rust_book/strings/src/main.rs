@@ -8,8 +8,13 @@ fn main() {
     println!("{}", s);
 
     let s = "Hello".to_string();
-    takes_slice(s.as_slice());
+//    takes_slice(s.as_slice());//FIXME: as_slice is now what?
     compare(s);
+
+    let s1 = "Hi.�💖";
+    let s2 = "Ok.💖💖";
+    println!("{} {}", s1.len(), s2.len());//10 11
+    println!("{} {}", s1.chars().count(), s2.chars().count());//5 5
 }
 
 fn takes_slice(slice: &str) {
@@ -19,7 +24,7 @@ fn takes_slice(slice: &str) {
 fn compare(string: String) {//good way
     //Viewing a String as a &str is cheap, but converting the &str to a String involves allocating
     //memory.
-    if string.as_slice() == "Hello" {
+    {//    if string.as_slice() == "Hello" {//FIXME: as_slice ?
         println!("yes");
     }
 }
