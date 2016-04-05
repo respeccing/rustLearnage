@@ -1,5 +1,5 @@
 #![feature(slice_patterns)]
-#![feature(convert)]
+//#![feature(convert)] unknown feature!
 #![forbid(non_shorthand_field_patterns)]
 #![warn(dead_code)]
 
@@ -43,7 +43,7 @@ fn main() {
     //If you're matching on an enum which has variants, you can use .. to ignore the value and type in the variant:
     enum OptionalInt {
         Value(i32),
-        Missing,
+        Missing, //nice warning here!
     }
     let x = OptionalInt::Value(5);
     match x {
