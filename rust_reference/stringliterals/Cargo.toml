@@ -1,0 +1,6 @@
+[package]
+name = "stringliterals"
+version = "0.1.0"
+authors = ["Emanuel Czirai <res.pe.cing+commits@gmail.com>"]
+
+[dependencies]
